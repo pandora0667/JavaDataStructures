@@ -3,7 +3,12 @@
  */
 public class BinarySearch {
   //field
-  int array[] = {1, 3, 5, 7, 9};
+   private int[] array;
+
+   //Constructor
+  public BinarySearch(int[] array) {
+    this.array = array;
+  }
 
   //Method
   public int search(int target) {

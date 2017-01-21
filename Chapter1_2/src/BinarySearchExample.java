@@ -6,9 +6,11 @@ import java.util.Scanner;
 public class BinarySearchExample {
   public static void main(String[] args) {
 
-    BinarySearch binarySearch = new BinarySearch();
+    int array[] = {1, 3, 5, 7, 9};
+    BinarySearch binarySearch = new BinarySearch(array);
     boolean run = true;
     Scanner scanner = new Scanner(System.in);
+
 
     while (run) {
       System.out.println("찾고자 하는 값을 입력하세요");
