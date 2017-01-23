@@ -71,7 +71,7 @@ import java.util.Scanner;
         return;
       } else if (nameCard[i] == null) {
         continue;
-      } else{
+      } else {
         System.out.println("정보가 없습니다.");
         return;
       }
