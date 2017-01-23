@@ -32,10 +32,10 @@ import java.util.Scanner;
       if (nameCard[i].getName().equals(name)) {
         System.out.println(nameCard[i].getName() + ", " + nameCard[i].getPhone());
         return;
-      } else if (nameCard[i] == null)
+      } else if (nameCard[i] == null) {
         continue;
-      else {
-        System.out.println("저장된 정보가 없습니다.");
+      } else {
+        System.out.println("정보가 없습니다.");
         return;
       }
     }
@@ -50,11 +50,11 @@ import java.util.Scanner;
         System.out.print(nameCard[i].getName() + "의 전화번호 입력 -> ");
         String phone = scanner.next();
         nameCard[i].setPhone(phone);
-        break;
-      }else if (nameCard[i] == null)
+        return;
+      } else if (nameCard[i] == null) {
         continue;
-      else{
-        System.out.println("저장된 정보가 없습니다.");
+      } else {
+        System.out.println("정보가 없습니다.");
         return;
       }
     }
@@ -68,11 +68,11 @@ import java.util.Scanner;
       if(nameCard[i].getName().equals(name)) {
         nameCard[i] = null;
         System.out.println("삭제 되었습니다.");
-        break;
-      }else if (nameCard[i] == null)
+        return;
+      } else if (nameCard[i] == null) {
         continue;
-      else{
-        System.out.println("저장된 정보가 없습니다.");
+      } else{
+        System.out.println("정보가 없습니다.");
         return;
       }
     }
