@@ -70,28 +70,20 @@ public class PhoneBookLikedList {
 
         if (tmpNode == head) { // 첫번째 노드
           head = head.getNextNode();
+          break;
+        }
 
-        } else if (tmpNode == tail) { // 마지막 노드
-          PhoneBookNode prevNode = head;
-          PhoneBookNode current = head.getNextNode();
+        PhoneBookNode prevNode = head;
+        PhoneBookNode current = head.getNextNode();
 
-          while (current.getNextNode() != null) {
-            prevNode = current;
-            current = current.getNextNode();
-          }
-          prevNode.setNextNode(null);
+        while (current != tmpNode) {
+          prevNode = current;
+          current = current.getNextNode();
+        }
+        prevNode.setNextNode(current.getNextNode());
 
-        } else {  // 중간노드
-          PhoneBookNode prevNode = head;
-          PhoneBookNode current = head.getNextNode();
-
-          while (current.getNextNode() != tail) {
-            prevNode = current;
-            if (current == tmpNode) {
-              prevNode.setNextNode(current.getNextNode());
-            }
-            current = current.getNextNode();
-          }
+        if (tmpNode == tail) { // 마지막 노드
+          tail = prevNode;
         }
       }
       tmpNode = tmpNode.getNextNode();
