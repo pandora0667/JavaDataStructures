@@ -40,8 +40,10 @@ public class PhoneBookMain {
         case 3:  // 전화번호 수정
           System.out.print("이름 -> ");
           name = scanner.next();
+          System.out.print(name + "의 변경할 전화번호 입력 -> ");
+          phoneNumber = scanner.next();
 
-          phoneBookLikedList.modifyPhoneBook(name);
+          phoneBookLikedList.modifyPhoneBook(name, phoneNumber);
           break;
 
         case 4:  // 전화번호 삭제
