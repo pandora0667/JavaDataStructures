@@ -62,18 +62,17 @@ public class PhoneBookLikedList {
     PhoneBookNode prevNode = head;
     PhoneBookNode current = head.getNextNode();
 
-      if (findNode != null) {
-        while (current != findNode) {
-          prevNode = current;
-          findNode = current.getNextNode();
-        }
-        prevNode.setNextNode(current.getNextNode());
-
-        if (findNode == tail) { // 마지막 노드
-          tail = prevNode;
-        }
-        return true;
+    if (findNode != null) {
+      while (current != findNode) {
+        prevNode = current;
+        findNode = current.getNextNode();
       }
+      prevNode.setNextNode(current.getNextNode());
+      if (findNode == tail) { // 마지막 노드
+        tail = prevNode;
+      }
+      return true;
+    }
     return false;
   }
 }
