@@ -26,8 +26,8 @@ public class PhoneBookMain {
           String name = scanner.next();
           String phoneNumber = scanner.next();
 
-          phoneBookLikedList.addPhoneBook(new PhoneBookNode(name, phoneNumber));
-          System.out.println("정보가 입력되었습니다.");
+          if (phoneBookLikedList.addPhoneBook(name, phoneNumber))
+            System.out.println("정보가 입력되었습니다.");
           break;
 
         case 2:  // 이름검색

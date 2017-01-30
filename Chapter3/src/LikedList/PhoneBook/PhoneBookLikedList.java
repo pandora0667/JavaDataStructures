@@ -29,9 +29,11 @@ public class PhoneBookLikedList {
     return null;
   }
 
-  public void addPhoneBook(PhoneBookNode phoneBookNode) {
-    tail.setNextNode(phoneBookNode);
-    tail = phoneBookNode;
+  public boolean addPhoneBook(String name, String phoneNumber) {
+    PhoneBookNode tmpNode = new PhoneBookNode(name, phoneNumber);
+    tail.setNextNode(tmpNode);
+    tail = tmpNode;
+    return true;
   }
 
   public void printAll() {
