@@ -34,7 +34,11 @@ public class PhoneBookMain {
           System.out.print("이름 -> ");
           name = scanner.next();
 
-          phoneBookLikedList.searchPhoneBook(name);
+          if (phoneBookLikedList.searchPhoneBook(name) != null) {
+            System.out.println("이름 : " + phoneBookLikedList.searchPhoneBook(name).getName());
+            System.out.println("전화번호 : " + phoneBookLikedList.searchPhoneBook(name).getPhoneNumber());
+          } else
+            System.out.println("해당 사용자가 존재하지 않습니다.");
           break;
 
         case 3:  // 전화번호 수정
@@ -43,14 +47,20 @@ public class PhoneBookMain {
           System.out.print(name + "의 변경할 전화번호 입력 -> ");
           phoneNumber = scanner.next();
 
-          phoneBookLikedList.modifyPhoneBook(name, phoneNumber);
+          if (phoneBookLikedList.modifyPhoneBook(name, phoneNumber))
+            System.out.println("정상적으로 수정되었습니다.");
+          else
+            System.out.println("해당사용자가 존재하지 않습니다.");
           break;
 
         case 4:  // 전화번호 삭제
           System.out.print("이름 -> ");
           name = scanner.next();
 
-          phoneBookLikedList.deletePhoneBook(name);
+          if (phoneBookLikedList.deletePhoneBook(name))
+            System.out.println("삭제되었습니다.");
+          else
+            System.out.println("삭제 실패했습니다. 사용자를 다시 확인하세요.");
           break;
 
         case 5:  // 모두출력

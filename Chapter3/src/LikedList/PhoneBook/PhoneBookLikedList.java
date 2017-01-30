@@ -8,26 +8,34 @@ public class PhoneBookLikedList {
   //Field
   private PhoneBookNode head;
   private PhoneBookNode tail;
+  private PhoneBookNode phoneBookNode = new PhoneBookNode();
 
-  //Constructor
+  //Constructor // head 더미노드 생성
   public PhoneBookLikedList() {
-    head = null;
-    tail = null;
+    head = phoneBookNode;
+    tail = phoneBookNode;
   }
 
   // Class
-  public void addPhoneBook(PhoneBookNode phoneBookNode) {
-    if (head == null) {
-      head = phoneBookNode;
-      tail = phoneBookNode;
-    } else {
-      tail.setNextNode(phoneBookNode);
-      tail = phoneBookNode;
+  private PhoneBookNode findLocate(String name) {
+    PhoneBookNode FindNode = head;
+
+    while (FindNode != null) {
+      if (FindNode.getName().equals(name)) {
+        return FindNode;
+      }
+      FindNode = FindNode.getNextNode();
     }
+    return null;
+  }
+
+  public void addPhoneBook(PhoneBookNode phoneBookNode) {
+    tail.setNextNode(phoneBookNode);
+    tail = phoneBookNode;
   }
 
   public void printAll() {
-    PhoneBookNode tmpNode = head;
+    PhoneBookNode tmpNode = head.getNextNode();
 
     while (tmpNode != null) {
       System.out.println("이름 : " + tmpNode.getName() + ", 전화번호 : " + tmpNode.getPhoneNumber());
@@ -35,40 +43,45 @@ public class PhoneBookLikedList {
     }
   }
 
-  public void searchPhoneBook(String name) {
-    PhoneBookNode tmpNode = head;
-
-    while (tmpNode != null) {
-      if (tmpNode.getName().equals(name)) {
-        System.out.println("이름 : " + tmpNode.getName() + ", 전화번호 : " + tmpNode.getPhoneNumber());
-      }
-      tmpNode = tmpNode.getNextNode();
-    }
+  public PhoneBookNode searchPhoneBook(String name) {
+    return findLocate(name);
   }
 
-  public void modifyPhoneBook(String name, String phoneNumber) {
-    PhoneBookNode tmpNode = head;
+  public boolean modifyPhoneBook(String name, String phoneNumber) {
+    PhoneBookNode findNode = findLocate(name);
 
-    while (tmpNode != null) {
-      if (tmpNode.getName().equals(name)) {
-        tmpNode.setPhoneNumber(phoneNumber);
-      }
-      tmpNode = tmpNode.getNextNode();
-    }
+    if (findNode != null) {
+      findNode.setPhoneNumber(phoneNumber);
+      return true;
+    } else
+      return false;
   }
 
-  public void deletePhoneBook(String name) {
+  public boolean deletePhoneBook(String name) {
+    PhoneBookNode findNode = findLocate(name);
     PhoneBookNode tmpNode = head;
-    PhoneBookNode prevNode = head;
+    PhoneBookNode prevNode = head.getNextNode();
     PhoneBookNode current = head.getNextNode();
+    current = current.getNextNode();
 
+/*
+    if (findNode != null) {
+      while (tmpNode != findNode) {
+        prevNode = current;
+        current = current.getNextNode();
+        tmpNode = tmpNode.getNextNode();
+      }
+      prevNode.setNextNode(current.getNextNode());
+      if (tmpNode == tail)
+        tail = prevNode;
+      return true;
+    } else
+      return false;
+*/
     while (tmpNode != null) {
       if (tmpNode.getName().equals(name)) {
 
-        if (tmpNode == head) { // 첫번째 노드
-          head = head.getNextNode();
-          break;
-        } else if (current != tmpNode) {
+        while (current != tmpNode) {
           prevNode = current;
           current = current.getNextNode();
         }
@@ -80,6 +93,6 @@ public class PhoneBookLikedList {
       }
       tmpNode = tmpNode.getNextNode();
     }
-     System.out.println("삭제 되었습니다.");
+    return true;
   }
 }

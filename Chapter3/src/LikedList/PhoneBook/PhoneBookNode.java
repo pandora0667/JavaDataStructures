@@ -12,6 +12,8 @@ public class PhoneBookNode {
 
   //Constructor
   public PhoneBookNode() {
+    name = "Initial ";
+    phoneNumber = "Initial";
   }
 
   public PhoneBookNode(String name, String phoneNumber) {
