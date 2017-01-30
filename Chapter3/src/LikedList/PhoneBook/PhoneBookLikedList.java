@@ -59,40 +59,21 @@ public class PhoneBookLikedList {
 
   public boolean deletePhoneBook(String name) {
     PhoneBookNode findNode = findLocate(name);
-    PhoneBookNode tmpNode = head;
-    PhoneBookNode prevNode = head.getNextNode();
+    PhoneBookNode prevNode = head;
     PhoneBookNode current = head.getNextNode();
-    current = current.getNextNode();
 
-/*
-    if (findNode != null) {
-      while (tmpNode != findNode) {
-        prevNode = current;
-        current = current.getNextNode();
-        tmpNode = tmpNode.getNextNode();
-      }
-      prevNode.setNextNode(current.getNextNode());
-      if (tmpNode == tail)
-        tail = prevNode;
-      return true;
-    } else
-      return false;
-*/
-    while (tmpNode != null) {
-      if (tmpNode.getName().equals(name)) {
-
-        while (current != tmpNode) {
+      if (findNode != null) {
+        while (current != findNode) {
           prevNode = current;
-          current = current.getNextNode();
+          findNode = current.getNextNode();
         }
         prevNode.setNextNode(current.getNextNode());
 
-        if (tmpNode == tail) { // 마지막 노드
+        if (findNode == tail) { // 마지막 노드
           tail = prevNode;
         }
+        return true;
       }
-      tmpNode = tmpNode.getNextNode();
-    }
-    return true;
+    return false;
   }
 }
