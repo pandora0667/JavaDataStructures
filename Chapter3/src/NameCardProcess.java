@@ -73,7 +73,6 @@ import java.util.Scanner;
         continue;
       } else {
         System.out.println("정보가 없습니다.");
-        return;
       }
     }
   }
