@@ -7,12 +7,14 @@ import java.util.Scanner;
  */
 public class PhoneBookMain {
   public static void main(String[] args) {
-    PhoneBookInterface phoneBook = new PhoneBookLinkedList() ;
+//    PhoneBookInterface phoneBook = new PhoneBookLinkedList();
+    PhoneBookInterface phoneBook = new PhoneBookArrayList(3);
 
     Scanner scanner = new Scanner(System.in);
     boolean run = true;
 
     System.out.println("전화번호부 배열리스트 + 연결리스트 V2.0");
+
 /*    System.out.println("1. 연결리스트 | 2. 배열리스트 || 선택 -> ");
     int select = scanner.nextInt();
 

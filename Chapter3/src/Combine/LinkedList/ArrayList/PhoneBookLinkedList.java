@@ -18,13 +18,13 @@ public class PhoneBookLinkedList implements PhoneBookInterface {
 
   // Class
   private PhoneBookNode findLocate(String name) {
-    PhoneBookNode FindNode = head;
+    PhoneBookNode findNode = head;
 
-    while (FindNode != null) {
-      if (FindNode.getName().equals(name)) {
-        return FindNode;
+    while (findNode != null) {
+      if (findNode.getName().equals(name)) {
+        return findNode;
       }
-      FindNode = FindNode.getNextNode();
+      findNode = findNode.getNextNode();
     }
     return null;
   }

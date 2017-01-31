@@ -12,17 +12,22 @@ public class PhoneBookArrayList implements PhoneBookInterface {
   }
 
   private int findLocate(String name) {
-    for (int i = 0; i < phoneBookNode.length; i++) {
-      if (phoneBookNode[i].getName().equals(name)) {
-        return i;
+    try {
+      for (int i=0; i<phoneBookNode.length; i++) {
+        if (phoneBookNode[i].getName().equals(name) && phoneBookNode != null) {
+          return i;
+        }
       }
+    } catch (NullPointerException e) {
+      System.out.println("NullPointerException 발생");
     }
     return -1;
   }
 
+  @Override
   public boolean addPhoneBook(String name, String phoneNumber) {
     PhoneBookNode newNameCard = new PhoneBookNode(name, phoneNumber);
-    for (int i = 0; i < phoneBookNode.length; i++) {
+    for (int i=0; i<phoneBookNode.length; i++) {
       if (phoneBookNode[i] == null) {
         phoneBookNode[i] = newNameCard;
         return true;
@@ -42,10 +47,9 @@ public class PhoneBookArrayList implements PhoneBookInterface {
 
   @Override
   public void printAll() {
-    for (int i = 0; i < phoneBookNode.length; i++) {
-      if (phoneBookNode[i] != null)
-        System.out.println("이름 : " + phoneBookNode[i].getName() + " 전화번호 : " + phoneBookNode[i].getPhoneNumber());
-      continue;
+    for (PhoneBookNode print : phoneBookNode) {
+      if (print != null)
+        System.out.println("이름 : " + print.getName() + " 전화번호 : " + print.getPhoneNumber());
     }
   }
 
