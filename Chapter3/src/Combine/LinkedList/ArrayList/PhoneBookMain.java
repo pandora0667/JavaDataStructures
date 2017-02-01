@@ -7,15 +7,14 @@ import java.util.Scanner;
  */
 public class PhoneBookMain {
   public static void main(String[] args) {
-//    PhoneBookInterface phoneBook = new PhoneBookLinkedList();
-    PhoneBookInterface phoneBook = new PhoneBookArrayList(3);
+    PhoneBookInterface phoneBook;
 
     Scanner scanner = new Scanner(System.in);
     boolean run = true;
 
     System.out.println("전화번호부 배열리스트 + 연결리스트 V2.0");
 
-/*    System.out.println("1. 연결리스트 | 2. 배열리스트 || 선택 -> ");
+   System.out.println("1. 연결리스트 | 2. 배열리스트 || 선택 -> ");
     int select = scanner.nextInt();
 
     switch (select) {
@@ -30,9 +29,10 @@ public class PhoneBookMain {
         break;
 
       default:
-        System.out.println("다시 입력하세요. ");
+        System.out.println("기본값으로 배열리스트를 생성합니다.");
+        phoneBook = new PhoneBookArrayList(3);
     }
-*/
+
 
     while (run) {
       System.out.println("----------------------------------------------------------------------------------------------");
@@ -41,7 +41,7 @@ public class PhoneBookMain {
       System.out.println();
 
       System.out.print("입력 -> ");
-      int select = scanner.nextInt();
+      select = scanner.nextInt();
 
       switch (select) {
         case 1:  // 정보입력
