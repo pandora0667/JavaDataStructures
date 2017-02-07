@@ -16,7 +16,7 @@ public class DoublyLinkedListMain {
     doublyLinkedList.printAll();
 
     System.out.println();
-    if (doublyLinkedList.deleteNode(5)) {
+    if (doublyLinkedList.deleteNode(3)) {
       System.out.println("잘 지웠어요");
       doublyLinkedList.printAll();
     } else

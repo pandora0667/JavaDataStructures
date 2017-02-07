@@ -15,17 +15,17 @@ public class ArrayListStackMain {
       System.out.print("데이터 입력 -> ");
       int data = scanner.nextInt();
 
-      run = arrayListStack.stackPush(new ArrayListStackNode(data));
+      run = arrayListStack.push(new ArrayListStackNode(data));
     }
 
     System.out.println();
-    System.out.println("peek 확인 : " + arrayListStack.stackPeek().getData());
+    System.out.println("peek 확인 : " + arrayListStack.peek().getData());
     System.out.println();
 
     System.out.println("데이터를 POP 합니다.");
 
     while (true) {
-      ArrayListStackNode node = arrayListStack.stackPop();
+      ArrayListStackNode node = arrayListStack.pop();
       if (node != null)
         System.out.println(node.getData());
       else

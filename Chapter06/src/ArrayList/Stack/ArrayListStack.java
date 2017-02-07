@@ -12,23 +12,25 @@ public class ArrayListStack {
     top = -1;
   }
 
-  public ArrayListStackNode stackPeek() {
-    return arrayListStackNodes[top-1];
+  public ArrayListStackNode peek() {
+    return arrayListStackNodes[top];
   }
 
-  public boolean stackPush(ArrayListStackNode newNode) {
+  public boolean push(ArrayListStackNode newNode) {
     try {
       arrayListStackNodes[++top] = newNode;
       return true;
     } catch (ArrayIndexOutOfBoundsException e) {
+      top = arrayListStackNodes.length - 1;
       return false;
     }
   }
 
-  public ArrayListStackNode stackPop() {
+  public ArrayListStackNode pop() {
     try {
-      return arrayListStackNodes[--top];
+      return arrayListStackNodes[top--];
     } catch (ArrayIndexOutOfBoundsException e) {
+      top = -1;
       return null;
     }
   }

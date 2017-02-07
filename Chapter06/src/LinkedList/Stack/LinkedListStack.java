@@ -7,9 +7,11 @@ public class LinkedListStack {
 
   private LinkedListNode top;
 
-  public LinkedListStack() {}
+  public LinkedListStack() {
+    top = null;
+  }
 
-  public void stackPush(LinkedListNode node) {
+  public void push(LinkedListNode node) {
     if (top == null) {
       top = node;
     } else {
@@ -19,13 +21,13 @@ public class LinkedListStack {
     }
   }
 
-  public LinkedListNode stackPop() {
+  public LinkedListNode pop() {
     LinkedListNode tmpNode = top;
     top = top.getPrev();
     return tmpNode;
   }
 
-  public LinkedListNode stackPeek() {
+  public LinkedListNode peek() {
     return top;
   }
 }

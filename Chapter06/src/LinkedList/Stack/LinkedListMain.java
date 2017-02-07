@@ -7,7 +7,7 @@ import java.util.Scanner;
  */
 public class LinkedListMain {
   public static void main(String[] args) {
-    LinkedListStack likedListStack = new LinkedListStack();
+    LinkedListStack linkedListStack = new LinkedListStack();
     Scanner scanner = new Scanner(System.in);
 
     while (true) {
@@ -15,19 +15,19 @@ public class LinkedListMain {
       int data = scanner.nextInt();
       if (data == -1)
         break;
-      likedListStack.stackPush(new LinkedListNode(data));
+      linkedListStack.push(new LinkedListNode(data));
     }
 
 
     System.out.println();
-    System.out.println("Peek 데이터 출력" + likedListStack.stackPeek().getData());
+    System.out.println("Peek 데이터 출력" + linkedListStack.peek().getData());
     System.out.println();
 
     System.out.println("데이터를 Pop 합니다.");
 
     try {
       while (true) {
-        System.out.println(likedListStack.stackPop().getData());
+        System.out.println(linkedListStack.pop().getData());
       }
     } catch (NullPointerException e) {
       System.out.println("데이터를 모두 출력했습니다.");
