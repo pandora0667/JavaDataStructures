@@ -3,6 +3,8 @@ package LinkedList.Stack;
 /**
  * Created by jusk2 on 2017-02-06.
  */
+
+
 public class LinkedListNode {
   //field
   private int data;

@@ -7,18 +7,18 @@ public class CircularLinkedList {
   //Field
   private CircularLinkedListNode head;
   private CircularLinkedListNode tail;
-  private int lenght;
+  private int length;
 
   //Constructor
   public CircularLinkedList() {
 //    head = null;
     tail = null;
-    lenght = 0;
+    length = 0;
   }
 
 
   public void add(CircularLinkedListNode node) {
-    lenght++;
+    length++;
     if (tail == null) {
 //      head = node;
       tail = node;
@@ -32,7 +32,7 @@ public class CircularLinkedList {
 
   private CircularLinkedListNode findLocate(int data) {
     CircularLinkedListNode findNode = tail.getNext();
-    for (int i=0; i<lenght; i++) {
+    for (int i=0; i<length; i++) {
       if (findNode.getData() == data) {
         return findNode;
       }
@@ -43,7 +43,7 @@ public class CircularLinkedList {
 
   public void printAll() {
     CircularLinkedListNode tmpNode = tail.getNext();
-    for (int i=0; i<lenght; i++) {
+    for (int i=0; i<length; i++) {
       System.out.print(tmpNode.getData() + ", ");
       tmpNode = tmpNode.getNext();
     }
@@ -59,7 +59,7 @@ public class CircularLinkedList {
       currentNode = currentNode.getNext();
     }
     prevNode.setNext(findNode.getNext());
-    lenght--;
+    length--;
 
     return true;
   }
