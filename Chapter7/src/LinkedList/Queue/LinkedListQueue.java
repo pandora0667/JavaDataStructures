@@ -6,13 +6,11 @@ package LinkedList.Queue;
 public class LinkedListQueue {
   private Node front;
   private Node rear;
-  private int length;
 
   //Constructor
   public LinkedListQueue() {
     this.front = null;
     this.rear = null;
-    length = 0;
   }
 
   private boolean empty() {

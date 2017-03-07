@@ -23,8 +23,7 @@ public class CircularQueueMain {
     System.out.println(check);
 
     while (true) {
-      Node node = new Node();
-      node = circularQueue.deQueue();
+      Node node = circularQueue.deQueue();
       if (node != null) {
         System.out.println(node.getData());
       } else
