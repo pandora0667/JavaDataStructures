@@ -28,9 +28,15 @@ public class BinaryTreeMain {
         TreeNode search = binarySearchTree.search(data);
 
         if (search != null) {
-            System.out.println(search.data + " 탐색 성공");
+            System.out.println(search.getData() + " 탐색 성공");
         } else {
             System.out.println("탐색 실패");
         }
+
+        binarySearchTree.delete(1);
+        binarySearchTree.delete(2);
+        binarySearchTree.delete(3);
+        binarySearchTree.delete(4);
+        binarySearchTree.print();
     }
 }

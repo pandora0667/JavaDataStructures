@@ -35,8 +35,11 @@ public class SortingInit {
     }
 
     public double bubbleSortingTime() {
+        int[] copy = new int[array.length];
+        System.arraycopy(array, 0, copy, 0, array.length);
+
         long start = System.currentTimeMillis();
-        Bubble bubble = new Bubble(array);
+        Bubble bubble = new Bubble(copy);
         bubble.sorting();
         long end = System.currentTimeMillis();
 
@@ -44,8 +47,11 @@ public class SortingInit {
     }
 
     public double selectionSortingTime() {
+        int[] copy = new int[array.length];
+        System.arraycopy(array, 0, copy, 0, array.length);
+
         long start = System.currentTimeMillis();
-        Selection selection = new Selection(array);
+        Selection selection = new Selection(copy);
         selection.sorting();
         long end = System.currentTimeMillis();
 
@@ -53,8 +59,11 @@ public class SortingInit {
     }
 
     public double insertionSortingTime() {
+        int[] copy = new int[array.length];
+        System.arraycopy(array, 0, copy, 0, array.length);
+
         long start = System.currentTimeMillis();
-        Insertion insertion = new Insertion(array);
+        Insertion insertion = new Insertion(copy);
         insertion.sorting();
         long end = System.currentTimeMillis();
 
@@ -63,8 +72,11 @@ public class SortingInit {
 
 
     public double heapSortingTime() {
+        int[] copy = new int[array.length];
+        System.arraycopy(array, 0, copy, 0, array.length);
+
         long start = System.currentTimeMillis();
-        Heap heap = new Heap(array);
+        Heap heap = new Heap(copy);
         heap.insert();
         heap.sorting();
         long end = System.currentTimeMillis();
@@ -74,16 +86,22 @@ public class SortingInit {
 
 
     public double mergeSortingTime() {
+        int[] copy = new int[array.length];
+        System.arraycopy(array, 0, copy, 0, array.length);
+
         long start = System.currentTimeMillis();
-        Merge merge = new Merge(array);
+        Merge merge = new Merge(copy);
         long end = System.currentTimeMillis();
 
         return (end - start);
     }
 
     public double quickSortingTime() {
+        int[] copy = new int[array.length];
+        System.arraycopy(array, 0, copy, 0, array.length);
+
         long start = System.currentTimeMillis();
-        Quick quick = new Quick(array);
+        Quick quick = new Quick(copy);
         long end = System.currentTimeMillis();
 
         return (end - start);
@@ -91,8 +109,11 @@ public class SortingInit {
 
 
     public double radixSortingTime() {
+        int[] copy = new int[array.length];
+        System.arraycopy(array, 0, copy, 0, array.length);
+
         long start = System.currentTimeMillis();
-        Radix radix = new Radix(array);
+        Radix radix = new Radix(copy);
         radix.sorting();
         long end = System.currentTimeMillis();
 
